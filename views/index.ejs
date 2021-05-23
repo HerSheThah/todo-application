@@ -1,0 +1,23 @@
+<%- include ("header") -%>
+  <h2 id="heading" class="box">TODO LIST <br> <%=listTitle%></h2>
+
+  <div class="box">
+    <% item.forEach( (newItem)=> { %>
+
+
+    <div class="item">
+      <input type="checkbox" name="" value="">
+      <p> <%=newItem[0].toUpperCase() + newItem.slice(1)%></p>
+      <form action="/deleteItem" method="post">
+        <button class="delete" type="submit" name="delete_item" value="<%=newItem%>"><i class="icon fas fa-trash"></i></button>
+      </form>
+
+    </div>
+    <%}); %>
+    <form action="/" method="post">
+      <input type="text" name="new_item" autocomplete="off" placeholder="Add Item" autofocus>
+      <button class="add" type="submit" name="add_item" value="<%=listTitle%>>+</button>
+    </form>
+  </div>
+
+<%- include ("footer") -%>
